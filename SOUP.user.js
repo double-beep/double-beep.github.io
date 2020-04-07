@@ -4,7 +4,7 @@
 // @description Miscellaneous client-side fixes for bugs on Stack Exchange sites (development)
 // @author      Ilmari Karonen
 // @version     1.57.9
-// @copyright   2014-2019, Ilmari Karonen (https://stackapps.com/users/10283/ilmari-karonen)
+// @copyright   2014-2020, Ilmari Karonen (https://stackapps.com/users/10283/ilmari-karonen)
 // @license     ISC; https://opensource.org/licenses/ISC
 // @match       *://*.stackexchange.com/*
 // @match       *://*.stackoverflow.com/*
@@ -86,22 +86,17 @@ fixes.mse58760 = {
 	// "body" added to increase selector precedence above conflicting SE style
 	css:	"body kbd { display: inline-block; max-width: 100%; white-space: normal }"
 };
-fixes.mse154788 = {
-	title:	"Why are comments overlapping the sidebar?",
-	url:	"https://meta.stackexchange.com/q/154788",
-	css:	".comment-body { overflow: auto; overflow-y: hidden; word-wrap: break-word }"
-};
 fixes.mse214830 = {
 	title:	"Selecting text in profile activity comments causes unexpected clipping",
 	url:	"https://meta.stackexchange.com/q/214830",
 	// TODO: Is this still reproducible?
 	css:	"span.comments { padding-bottom: 0 }"
 };
-fixes.mse230392 = {
+/*fixes.mse230392 = {
 	title:	"Layout bug while viewing vote count in Meta Stackexchange",
 	url:	"https://meta.stackexchange.com/q/230392",
 	css:	"div.vote-count-separator { margin: 5px auto }"
-};
+}; no-repro, needs confirmation*/
 fixes.mse224185 = {
 	title:	"Links sometimes float above text in vote-to-close dialog on Firefox",
 	url:	"https://meta.stackexchange.com/q/224185",
@@ -151,7 +146,7 @@ fixes.mse248156 = {
 	css:	"#user-tab-bounties #bounties-table .started { display: none }"
 };
 fixes.mse250081 = {
-	title:	"Retract close vote UI",
+	title:	"Make it clearer when looking at a question if I've already voted to close it",
 	url:	"https://meta.stackexchange.com/q/250081",
 	credit:	"style suggested by AstroCB",
 	// FIXME: This doesn't work on pt.SO or ja.SO; should find out how this tooltip is translated there
@@ -225,12 +220,6 @@ fixes.mse302580 = {
 	// TODO: Is this still reproducible on Firefox?
 	css:	"@media print {\nbody { display: block !important }}"
 };
-fixes.mse302569 = {
-	title:	"Alignment improvement in the flag dialog",
-	url:	"https://meta.stackexchange.com/q/302569",
-	// TODO: Is this still reproducible?
-	css:	"body .popup .already-flagged { margin-left: 23px }"
-};
 fixes.mse304096 = {
 	title:	"Comments and answers have huge right margins when printed",
 	url:	"https://meta.stackexchange.com/q/304096",
@@ -266,10 +255,10 @@ fixes.codegolf959 = {
 	sites:	/^(codegolf|puzzling)\./,
 	css:	"pre { line-height: 1.15 }"
 };
-if (false) fixes.math12902 = {
+/*fixes.math12902 = {
 	title:	"Visited questions are practically indistinguishable in search results",
 	url:	"https://math.meta.stackexchange.com/q/12902",
-	sites:	/^math\.stackexchange\.com$/,  // XXX: main site only!
+	sites:	/^math\.stackexchange\.com$/, // XXX: main site only!
 	// FIXME: Disabled temporarily due to conflicts with new CSS; fix or remove!
 	// "body" added to override conflicting SE styles
 	css:	"body a, body .question-hyperlink { color: #145d8a }" +
@@ -282,14 +271,14 @@ if (false) fixes.math12902 = {
 		"body .user-show-new .answer-hyperlink:visited," +
 		"body .user-show-new .site-hyperlink:visited { color: #003b52 !important }"
 };
-if (false) fixes.math12902_meta = {
+fixes.math12902_meta = {
 	title:	"Visited questions are practically indistinguishable in search results (meta)",
 	url:	"https://math.meta.stackexchange.com/q/12902",
 	sites:	/^math\.meta\.stackexchange\.com$/,
 	// FIXME: Disabled temporarily due to conflicts with new CSS; fix or remove!
 	// "body" added to override conflicting SE styles
 	css:	"body a { color: #a29131 } body a:visited { color: #736722 }"
-};
+};*/
 fixes.mse250407 = {
 	title:	"User signature cards on old revisions look funny",
 	url:	"https://meta.stackexchange.com/q/250407",
@@ -304,17 +293,17 @@ fixes.mse244587 = {
 		"body .users-sidebar .userDetails img { margin-right: 0 }" +
 		"body .users-sidebar .userDetails { overflow: hidden }"
 };
-fixes.mse294574 = {
+/*fixes.mse294574 = {
 	title:	"Unbroken line in preview text causes whole post block to side scroll",
 	url:	"https://meta.stackexchange.com/q/294574",
 	sites:	/^stackexchange\.com$/,
 	css:	"#question-list .question { word-wrap: break-word }"
-};
+}; no-repro */
 fixes.mse306254 = {
 	title:	"Annoying animation on reputation leagues",
 	url:	"https://meta.stackexchange.com/q/306254",
 	sites:	/^stackexchange\.com$/,
-	// TODO: Is this still reproducible? (Should be safe to keep this fix anyway.)
+	// TODO: Is this still reproducible? (Should be safe to keep this fix anyway.) is overflow: auto
 	css:	"body .league-container { overflow: hidden }"
 };
 
@@ -336,9 +325,9 @@ fixes.mse216760 = {
 	// TODO: Is this still reproducible?
 	// "body" added to increase selector precedence above conflicting SE style
 	css:	"body .message.highlight { margin-right: 0px }" +
-		"body .message.highlight .flash { right: -38px }"  // regression: https://meta.stackexchange.com/q/221733
+		"body .message.highlight .flash { right: -38px }" // regression: https://meta.stackexchange.com/q/221733
 };
-fixes.mse222509 = {
+/*fixes.mse222509 = {
 	title:	"Getting Red Line under tags",
 	url:	"https://meta.stackexchange.com/q/222509",
 	sites:	/^chat\./,
@@ -349,7 +338,7 @@ fixes.mse222509 = {
 			$(this).closest('a').not('.soup-mse222509-fix').addClass('soup-mse222509-fix');
 		} );
 	}
-};
+}; no-repro: tag design has changed */
 fixes.mse134268 = {
 	title:	"U+0008 inserted into chat @-pings",
 	url:	"https://meta.stackexchange.com/q/134268",
@@ -362,53 +351,6 @@ fixes.mse134268 = {
 			e.stopPropagation();
 		} );
 	}
-};
-fixes.mse224233 = {
-	title:	"Problem in css style loading in Search Bar after refresh page when using FF",
-	url:	"https://meta.stackexchange.com/q/224233",
-	sites:	/^chat\./,
-	script:	function () {
-		$('#search:not([placeholder])').off('focus blur').attr( 'placeholder', function () {
-			var $this = $(this);
-			if ( $this.closest('#roomsearch').length ) return 'filter rooms';
-			else if ( $this.closest('#usersearch').length ) return 'filter users';
-			else return 'search';
-		} ).filter('.watermark').val('').removeClass('watermark');
-	}
-};
-fixes.mso342361 = {
-	title:	"Minor (funny) chat star bug for Hebrew text",
-	url:	"https://meta.stackoverflow.com/q/342361",
-	sites:	/^chat\./,
-	// TODO: Has this really been fixed?
-	script:	function () {
-		SOUP.hookAjax( /^\/chats\/stars\/\d+\b/, function () {
-			$('#starred-posts li').each( function () {
-				// jQuery doesn't work well with raw text nodes :(
-				var nodes = null;
-				for ( var node = this.firstChild; node; node = node.nextSibling ) {
-					if ( /\bpermalink\b/.test( node.className ) ) break;
-					else if ( /\bstars\b/.test( node.className ) ) nodes = [];
-					else if ( nodes ) nodes.push( node );
-				}
-				if ( ! nodes || nodes.length < 1 ) return;
-				// unwrap the trailing dash
-				var firstNode = nodes[0], lastNode = nodes[nodes.length - 1], text = lastNode.nodeValue;
-				var match = /(\s+-\s*)$/.exec( text );
-				if ( match ) {
-					nodes[nodes.length - 1] = document.createTextNode( text.substr(0, match.index) );  // wrap this...
-					lastNode.nodeValue = match[0];  // ...instead of this
-				}
-				var wrapper = document.createElement( 'span' );
-				wrapper.className = "soup-bidi-isolate";  // XXX: defined by mse84296 fix
-				this.insertBefore( wrapper, firstNode );
-				for ( var i = 0; i < nodes.length; i++ ) {
-					wrapper.appendChild( nodes[i] );
-				}
-			} );
-		} ).code();
-	},
-	css:	"#starred-posts .relativetime { unicode-bidi: embed }" // fallback
 };
 fixes.mso362554 = {
 	title:	"Why are the chat FAQ in almost identical links different?",
@@ -566,50 +508,45 @@ fixes.mse224533 = {
 fixes.mse115702 = {
 	title:	"Option to delete an answer only visible after a reload",
 	url:	"https://meta.stackexchange.com/q/115702",
-	path:	/^\/(questions\/\d+|review\b)/,
 	script:	function () {
 		if ( ! window.StackExchange || ! StackExchange.options || ! StackExchange.options.user ) return;
-		if ( StackExchange.options.user.rep < 4000 ) return;  // skip the API call on sites where the user definitely doesn't have enough rep
-		SOUP.loadPrivileges( function (privileges) {
-			if ( StackExchange.options.user.rep < (privileges["access 'trusted user' tools"] || 20000) ) return;
-
-			var html = '<a href="#" class="soup-delete-link" title="vote to delete this post">delete</a>';
-			var lsep = '<span class="lsep">|</span>';
-			function updateDeleteLinks( postid, score ) {
-				if ( /[^0-9]/.test(postid) ) {
-					return SOUP.log('SOUP mse115702 received invalid postid = "' + postid + '", aborting!');
-				}
-				var isAnswer = $('#answer-' + postid).length > 0;
-				if ( ! isAnswer ) return;  // XXX: proper question handling requires detecting closed questions
-
-				var deleteLinks = $('[id="delete-post-' + postid + '"]');  // XXX: there might be several
-				if ( score >= (isAnswer ? 0 : -2) ) {
-					// XXX: just to be safe, don't remove any delete links that we didn't add
-					deleteLinks = deleteLinks.filter('.soup-delete-link');
-					deleteLinks.next('span.lsep').andSelf().hide();
-				} else if ( deleteLinks.length ) {
-					deleteLinks.next('span.lsep').andSelf().show();  // show existing links
-				} else {
-					// need to create a new delete link from scratch and slip it into the menu
-					var target = $('.flag-post-link[data-postid=' + postid + ']');
-					var lsep = target.prev('span.lsep').clone(true);
-					if (lsep.length == 0) lsep = $('<span class="lsep">|</span>');
-					$(html).attr('id', 'delete-post-' + postid).insertBefore(target).after(lsep);
-				}
+		if ( StackExchange.options.user.rep < ( SOUP.isBeta ? 4000 : 20000 ) ) return;
+		var html = '<a href="#" class="soup-delete-link" title="vote to delete this post">delete</a>';
+		var lsep = '<span class="lsep">|</span>';
+		function updateDeleteLinks( postid, score ) {
+			if ( /[^0-9]/.test(postid) ) {
+				return SOUP.log('SOUP mse115702 received invalid postid = "' + postid + '", aborting!');
 			}
-			SOUP.subscribeToQuestion( function (data) {
-				if ( data.a === 'score' ) updateDeleteLinks( data.id, data.score );
-			} );
-			// fallback to make this fix work in review too (TODO: hook the button clicks directly?)
-			SOUP.hookAjax( /^\/posts\/(\d+)\/vote\/[023]\b/, function ( event, xhr, settings, match ) {
-				var score = $.parseJSON( xhr.responseText ).NewScore;
-				var postid = match[1];
-				updateDeleteLinks( postid, score );
-			} );
+			var isAnswer = $('#answer-' + postid).length > 0;
+			if ( ! isAnswer ) return;  // XXX: proper question handling requires detecting closed questions
+
+			var deleteLinks = $('[id="delete-post-' + postid + '"]');  // XXX: there might be several
+			if ( score >= (isAnswer ? 0 : -2) ) {
+				// XXX: just to be safe, don't remove any delete links that we didn't add
+				deleteLinks = deleteLinks.filter('.soup-delete-link');
+				deleteLinks.next('span.lsep').andSelf().hide();
+			} else if ( deleteLinks.length ) {
+				deleteLinks.next('span.lsep').andSelf().show();  // show existing links
+			} else {
+				// need to create a new delete link from scratch and slip it into the menu
+				var target = $('.flag-post-link[data-postid=' + postid + ']');
+				var lsep = target.prev('span.lsep').clone(true);
+				if (lsep.length == 0) lsep = $('<span class="lsep">|</span>');
+				$(html).attr('id', 'delete-post-' + postid).insertBefore(target).after(lsep);
+			}
+		}
+		SOUP.subscribeToQuestion( function (data) {
+			if ( data.a === 'score' ) updateDeleteLinks( data.id, data.score );
+		} );
+		// fallback to make this fix work in review too (TODO: hook the button clicks directly?)
+		SOUP.hookAjax( /^\/posts\/(\d+)\/vote\/[023]\b/, function ( event, xhr, settings, match ) {
+			var score = $.parseJSON( xhr.responseText ).NewScore;
+			var postid = match[1];
+			updateDeleteLinks( postid, score );
 		} );
 	}
 };
-fixes.mse231150 = {
+/*fixes.mse231150 = {
 	title:	"Clicking the top bar sometimes loads the SE homepage, sometimes shows the site switcher",
 	url:	"https://meta.stackexchange.com/q/231150",
 	early:	function () {
@@ -621,7 +558,7 @@ fixes.mse231150 = {
 			if ( elem ) event.preventDefault();
 		}, false );
 	}
-};
+}; no repro */
 fixes.mse234680 = {
 	title:	"Domain names in an URL are incorrectly encoded as escaped ASCII characters instead of punycode",
 	url:	"https://meta.stackexchange.com/q/234680",
@@ -731,7 +668,7 @@ fixes.mse243519 = {
 		}, 'mse243519', null, ['load', 'post', 'comments'] );
 	}
 };
-fixes.mse220611 = {
+/*fixes.mse220611 = {
 	title:	"Blue background on nominee comments only when expanded",
 	url:	"https://meta.stackexchange.com/q/220611",
 	path:	/^\/election\b/,
@@ -744,8 +681,8 @@ fixes.mse220611 = {
 			$this.find( '.comments .comment-user:not(.owner)[href^="' + match[0] + '"]').addClass('owner');
 		} );
 	}
-};
-fixes.mse121682 = {
+}; status-completed */
+/*fixes.mse121682 = {
 	title:	"Links to election nominations don't work after nominations close",
 	url:	"https://meta.stackexchange.com/q/121682",
 	script:	function () {
@@ -761,15 +698,14 @@ fixes.mse121682 = {
 			} );
 		} );
 	}
-};
+}; no-repro */
 fixes.mse230536 = {
-	title:	"Large down-vote count doesn't display negative sign",
+	title:	"Large downvote count doesn't display negative sign",
 	url:	"https://meta.stackexchange.com/q/230536",
 	script:	function () {
 		SOUP.hookAjax( /^\/posts\/\d+\/vote-counts\b/, function () {
 			// XXX: the downvote element has no class, hence the silly selector
-			$('.js-vote-count > .vote-count-separator + div[style*="maroon"]').each( function () {
-				if ( $(this).children().length > 0 ) return;
+			$('.vote-count-separator').next().each( function () {
 				this.textContent = this.textContent.replace( /^(\s*)([1-9])/, '$1-$2' );
 			} );
 		} );
@@ -968,7 +904,7 @@ fixes.mse153528 = {
 		} );
 	}
 };
-fixes.mse259325 = {
+/*fixes.mse259325 = {
 	title:	"Answer flashes orange when I click the “edit (1)” link to review a suggested edit",
 	url:	"https://meta.stackexchange.com/q/259325",
 	script:	function () {
@@ -985,16 +921,16 @@ fixes.mse259325 = {
 			};
 		} );
 	}
-};
+}; no-repro. */
 fixes.mse268584 = {
 	title:	"When a user is deleted, OP highlighting is lost",
 	url:	"https://meta.stackexchange.com/q/268584",
 	script:	function () {
 		SOUP.addContentFilter( function () {
-			// XXX: in dupe review, there can be multiple questions on the page
+            var name = $('.post-signature.owner .user-details').children().html();
+            if ( name === "" ) return;
+            // XXX: in dupe review, there can be multiple questions on the page
 			$('.mainbar, #mainbar').each( function () {
-				var name = $(this).find('.question .post-signature.owner .user-details').not(':has(a)').text().trim();
-				if ( name === "" ) return;
 				$(this).find('span.comment-user:not(.owner)').filter( function () {
 					return this.textContent === name;
 				} ).addClass('owner');
@@ -1079,7 +1015,7 @@ fixes.mso310158 = {
 		// TODO: figure out how to make this work in chat too
 	}
 };
-fixes.mso313853 = {
+/*fixes.mso313853 = {
 	title:	"“Per page” pagination returns no results when increasing limit on last page",
 	url:	"https://meta.stackoverflow.com/q/313853",
 	script:	function () {
@@ -1090,7 +1026,7 @@ fixes.mso313853 = {
 		};
 		SOUP.hookAjax( /^\/(questions\/?)?([?#]|$)|^\/questions\/[a-z]/, function () {
 			$('.page-sizer').each( function () {
-				var sizer = $(this), curURL = sizer.find('a.current').attr('href').replace(/#.*/, '');
+				var sizer = $(this), curURL = sizer.find('a.current').attr('href').replace(/#.*\/, '');
 				var sizeMatch = re.size.exec(curURL), pageMatch = re.page.exec(curURL);
 				if ( ! sizeMatch ) return;
 				if ( ! pageMatch ) {
@@ -1121,42 +1057,29 @@ fixes.mso313853 = {
 			} );
 		} ).code();
 	}
-};
+}; no-repro, now clicking '50' always redirects to the first page */
 fixes.mse74274 = {
 	title:	"Privacy leak in permalink?",
 	url:	"https://meta.stackexchange.com/q/74274",
 	script:	function () {
-		var anonymizeShareSheet = function () {
-			var $sheet = $(this), input = $sheet.find('.js-input');
-			if ( input.length !== 1 ) return;
+		if ( ! window.StackExchange ) return;
 
-			var url = input.val(), anonUrl = url.replace( /(\/[qa]\/\d+)\/\d+$/, '$1' );
-			if ( anonUrl === url ) return;
+		// TODO: we should strip the user ID from the share link URL itself!
+		// The problem is that showShareTip() pulls the URL from the link,
+		// so this would anonymize the popup *too* completely. :-(
 
-			var anon = $sheet.find('.soup-share-anon');
-			if ( anon.length === 0 ) {
-				anon = input.clone().addClass('soup-share-anon').removeClass('js-input');
-				input.after(anon).after('<div class="my8 soup-share-anon-title">anonymous</div>');
-			}
-			anon.val(anonUrl);
+		function anonShareTip () {
+          $('[id^=se-share-sheet] input:not(".share-anon")').each( function () {
+            if ( $(this).parent().find('.share-anon').length ) $(this).parent().find('.share-anon, #anonymous').remove();
+            const input = $(this), anon = input.clone();
+            anon.val( input.val().replace(/(\/[qa]\/\d+)\/\d+$/, '$1') );
+            anon.addClass('share-anon');
+            input.after(anon).after('<span id="anonymous">Anonymous</span>'); // TODO: localize?
+          } )
+        }
 
-			// also tweak the copy button text a bit
-			// duplicating the button would be nice, but would require reimplementing all the clipboard handling code that SE doesn't expose :(
-			$sheet.find('button.js-copy-link-btn:not(.soup-mse74274-fixed)').addClass('soup-mse74274-fixed').append(' (with user id)');
-		};
-
-		$(document).on( 'se-share-sheet:update', function ( e ) {
-			// defer until the SE updateSheet() code has run
-			setTimeout( function () {
-				var sheetId = e.target.getAttribute( 'aria-controls' );
-				var sheet = sheetId && document.getElementById( sheetId );
-				if ( sheet ) anonymizeShareSheet.call( sheet );
-			}, 0 );
-		} );
-
-		// some share sheets have probably already been created
-		$('div[id^=se-share-sheet]').each( anonymizeShareSheet );
-	}
+		$(document).on( 'click', '.js-share-link', anonShareTip );
+	},
 };
 fixes.mso338932 = {
 	title:	"Touch laptop – “The snippet editor does not support touch devices.”",
@@ -1184,7 +1107,7 @@ fixes.mso338932 = {
 		$('.post-editor').each( bypassTouchBlocker );
 	}
 };
-fixes.mse287473 = {
+/*fixes.mse287473 = {
 	title:	"Tooltip banner blinking for question closed by the user with the golden badge in small screens",
 	url:	"https://meta.stackexchange.com/q/287473",
 	// NOTE: This actually fixes a more generic bug in StackExchange.helpers.showMessage, where the positioning
@@ -1223,7 +1146,7 @@ fixes.mse287473 = {
 			return oldShowMessage.call( this, $elem, message, options );
 		};
 	}
-};
+}; no-repro perhaps because of new blue post notices */
 fixes.mse135710 = {
 	title:	"Please show changed titles separately in edit diffs",
 	url:	"https://meta.stackexchange.com/q/135710",
@@ -1245,7 +1168,7 @@ fixes.mse135710 = {
 	css:	'table.soup-mse135710 { width: 100% }\n' +
 		'table.soup-mse135710 h2 { margin-bottom: 0 }'
 };
-fixes.mse223725 = {
+/*fixes.mse223725 = {
 	title:	"All internal links on Stack Exchange sites should be protocol-relative",
 	url:	"https://meta.stackexchange.com/q/223725",
 	// TODO: Is this still needed?
@@ -1259,7 +1182,7 @@ fixes.mse223725 = {
 		SOUP.addContentFilter( fixAllLinks, 'soup HTTPS link fix' );
 		$(document).on( 'mouseover click', selector, fixLink );
 	}
-};
+}; no-repro? */
 fixes.mse299086 = {
 	title:	"HTTPS certificate error for meta redirect pages (meta.<site>.stackexchange.com)",
 	url:	"https://meta.stackexchange.com/q/299086",
@@ -1307,7 +1230,7 @@ fixes.mse295065 = {
 	script:	function () {
 		if ( ! window.StackExchange || ! StackExchange.options || ! StackExchange.options.user ) return;
 		var link = '<a href="/users/flag-summary/' + StackExchange.options.user.userId + '" style="color:inherit">';
-		SOUP.hookAjax( /^\/flags\/(posts|comments)\/\d+\/popup/,  function () {
+		SOUP.hookAjax( /^\/flags\/(posts|comments)\/\d+\/popup/, function () {
 			$('#popup-flag-post .flag-remaining-inform, .popup-flag-comment .flag-remaining-spam').not(':has(a)').wrapInner(link);
 		} );
 	}
@@ -1353,7 +1276,7 @@ fixes.mse90713 = {
 	// XXX: the bounty detection won't work in review; hopefully bountied questions should rarely appear there
 	path:	/^\/questions\/\d+\b/,
 	script:	function () {
-		if ( $('#question .bounty-notification .question-status.bounty').length == 0 ) return;  // no bounty => nothing to do
+		if ( ! $('.js-post-notice').length || ! $('.js-post-notice').find('b').text().match(/bounty/) ) return; // no bounty notice => nothing to do
 
 		var notice = '<div class="soup-mse90713-notice">This question has an open bounty and cannot be closed.</div>';
 
@@ -1365,7 +1288,7 @@ fixes.mse90713 = {
 		} );
 		// also prevent the dupe finder from enabling the submit button
 		SOUP.hookAjax( /^\/posts\/popup\/close\/search-originals\/\d+\b/, function () {
-			$('#popup-close-question .popup-submit').disable();
+			$('.popup-submit').disable();
 		} );
 	},
 	// the colors are based on the .message.message-error style in all.css on SO
@@ -1428,7 +1351,7 @@ fixes.mse178439 = {
 	path:	/^\/questions\/\d+/,
 	script:	function () {
 		var answers = $('#answers > .answer'), firstAnswer = answers.first();
-		if ( ! firstAnswer.is('.downvoted-answer.accepted-answer') ) return;
+		if ( ! firstAnswer.is('.downvoted-answer') ) return;
 
 		function getScore (post) {
 			// XXX: we assume that no answers have expanded vote counts yet when this runs
@@ -1441,19 +1364,19 @@ fixes.mse178439 = {
 		var order = /[?&]answertab=([^&#]*)/.exec( $('#tabs a.youarehere').attr('href') );
 		if ( ! order ) return SOUP.log( 'soup mse178439: unable to determine answer sort mode!' );
 
-		var acceptedScore = getScore( firstAnswer );  // XXX: we need this anyway for logging
+		var acceptedScore = getScore( firstAnswer ); // XXX: we need this anyway for logging
 		var filterFunc;
 		switch ( order[1] ) {
 			case 'votes':
-				answers = answers.not('.deleted-answer');  // deleted answers always sort last by score!
+				answers = answers.not('.deleted-answer'); // deleted answers always sort last by score!
 				filterFunc = function () { return getScore(this) > acceptedScore };
 				break;
 			case 'active':
-				var acceptedActive = getTimestamp( firstAnswer, 0 );  // assume edit timestamp comes first
+				var acceptedActive = getTimestamp( firstAnswer, 0 ); // assume edit timestamp comes first
 				filterFunc = function () { return getTimestamp(this, 0) > acceptedActive };
 				break;
 			case 'oldest':
-				var acceptedCreated = getTimestamp( firstAnswer, -1 );  // assume creation timestamp comes last
+				var acceptedCreated = getTimestamp( firstAnswer, -1 ); // assume creation timestamp comes last
 				// XXX: community wiki answers only show the last edit time, so that's all we get here :(
 				filterFunc = function () { return getTimestamp(this, -1) < acceptedCreated };
 				break;
@@ -1475,47 +1398,22 @@ fixes.mse307976 = {
 	url:	"https://meta.stackexchange.com/q/307976",
 	path:	/^\/review\b/,
 	script:	function () {
-		var $window = $(window), $header = $('.review-bar-container'), $bar = $('.review-bar');
+		var $window = $(window), $header = $('.js-review-bar-container'), $bar = $('.js-review-bar');
 		$window.on( 'scroll resize', function () {
 			$bar.css( 'left', $header.offset().left - $window.scrollLeft() );
 		} )
 	}
 };
-fixes.mse331640 = {
-	title:	"Syntax highlight and MathJax is not rendered after reloading an edited post",
-	url:	"https://meta.stackexchange.com/q/331640",
+/*fixes.mse322619 = {
+	title:	"Can't see other pages of answers on a certain deleted question",
+	url:	"https://meta.stackexchange.com/q/322619",
 	script:	function () {
-		if ( ! window.styleCode ) return;
-		SOUP.hookAjax( /^\/posts\/ajax-load-realtime\/[\d;]+\?title=true/, function () {
-			$('.spoiler').off('click');  // avoid adding duplicate click handlers
-			styleCode();
-		}, 200 );  // the old content fades out for 150ms before it's replaced
+		if ( $('.hidden-deleted-question').length < 1 ) return;
+		$('.pager-answers a[href], #tabs a[href]').attr( 'href', function (i, href) {
+			return href.replace( /^(\/questions\/\d+)\/[^?#]*\/, '$1' );
+		} );
 	}
-};
-fixes.mse333808 = {
-	title:	"Text nodes directly inside spoilers are broken in mobile view",
-	url:	"https://meta.stackexchange.com/q/333808",
-	jqinit:	function () {
-		var oldChildren = $.fn.children;
-		$.fn.children = function () {
-			if ( SOUP.isMobile && this.length === 1 && this.is('blockquote.spoiler-overlay') ) {
-				return $.fn.contents.apply(this, arguments);
-			} else {
-				return oldChildren.apply(this, arguments);
-			}
-		};
-	}
-};
-fixes.mse341498 = {
-	title:	"Spoilers in user profiles don't show permanently once they are clicked, unlike for posts",
-	url:	"https://meta.stackexchange.com/q/341498",
-	path: /^\/users\/\d+/,
-	script: function () {
-		if ( ! window.styleCode ) return;
-		$('.spoiler').off('click');  // for safety, in case SE ever fixes this bug
-		styleCode();
-	}
-};
+}; status-completed */
 
 
 //
@@ -1798,7 +1696,7 @@ fixes.mse299082 = {
 		encodeURIComponent( '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176 124"><path d="m172.3 104.6c-2.024 7.622-7.987 13.62-15.56 15.66-13.7 3.7-68.7 3.7-68.7 3.7s-55.04 0-68.76-3.7c-7.57-2-13.54-8-15.56-15.7-3.68-13.78-3.68-42.6-3.68-42.6s0-28.82 3.678-42.64c2.024-7.62 7.992-13.62 15.56-15.66 13.72-3.7 68.76-3.7 68.76-3.7s55.04 0 68.76 3.701c7.573 2.038 13.54 8.04 15.56 15.66 3.7 13.82 3.7 42.64 3.7 42.64s0 28.82-3.678 42.64" fill="#f00"/><path d="m70 35.83 46 26.17-46 26.17v-52.34" fill="#fff"/></svg>' ) +
 		") #282828 center/10% no-repeat }"
 };
-fixes.mse307605 = {
+/*fixes.mse307605 = {
 	title:	"Sorting SEDE output is unstable",
 	url:	"https://meta.stackexchange.com/q/307605",
 	sites:	/^data\.stackexchange\.com$/,
@@ -1851,8 +1749,8 @@ fixes.mse307605 = {
 			return this;
 		};
 	}
-};
-fixes.mse308072 = {
+};*/
+/*fixes.mse308072 = {
 	title:	"Clicking on tags in global search results is broken",
 	url:	"https://meta.stackexchange.com/q/308072",
 	sites:	/^stackexchange\.com$/,
@@ -1863,59 +1761,7 @@ fixes.mse308072 = {
 			return ( q ? q.origin : "" ) + href;
 		} );
 	}
-};
-fixes.music396 = {
-	title:	"jTab needs to render in Markdown preview",
-	url:	"https://music.meta.stackexchange.com/q/396",
-	sites:	/^music\./,
-	// partially reimplementation of https://cdn.sstatic.net/js/third-party/abcjs/abcjs-loader.js
-	script:	function () {
-		// XXX: for consistency, these filters need to match the corresponding ones in abcjs-loader.js
-		function looksLikeAbc () {
-			// starts with "X:", 3 or more lines, exactly one line starts with "K:"
-			var text = $(this).text();
-			return /^X:.*\n.*\n./.test( text ) && text.match( /\nK:/g ).length === 1;
-		}
-		function looksLikeJTab () {
-			// at most two, and less than 50%, of all tokens are longer than 3 characters and have less than 50% digits and dollar signs
-			// (we depart slightly from the SE reference implementation by also requiring at least one token; also, the reference
-			// implementation actually contains a typo that turns the "less than 50% digits and dollar signs" check into a no-op!)
-			var tokens = $(this).text().split(/[\s\/|.:]+/);
-			var invalid = tokens.filter( token => token.length > Math.max( 3, 2 * token.replace(/[^\d$]+/g, '').length ) );
-			return tokens.length > 0 && invalid.length < Math.min( 3, tokens.length / 2 );
-		}
-
-		var counter = 0;
-		function renderAbcBlock () {
-			var targetID = 'soup-notation-' + (++counter), $this = $(this);
-			$this.after( '<div id="' + targetID + '">' );
-			ABCJS.renderAbc( targetID, '%%staffwidth 450\n' + $this.text() );
-			$this.hide();
-		}
-
-		var abcURL = "/content/js/third-party/abcjs/abcjs_basic_noraphael_2.3-min.js?v=1";
-		function loadAndRenderAbc ( $blocks ) {
-			if ( window.ABCJS ) $blocks.each( renderAbcBlock );
-			if ( $('script[src*="/abcjs_basic_"]').length > 0 ) return;  // assume ABCJS is already loading
-			SOUP.log( 'soup music396 loading', abcURL );
-			var abcJsScript = document.createElement( 'script' );
-			abcJsScript.onload = function () { $('.abc').each( renderAbcBlock ) };
-			abcJsScript.src = abcURL;
-			document.head.appendChild( abcJsScript );
-		}
-
-		function updateAbcAndJTab ( where ) {
-			var $abc = $(where).find('pre code:not(.abc):not(.jtab)').filter(looksLikeAbc).addClass('abc');
-			var $jtab = $(where).find('pre code:not(.jtab):not(.abc)').filter(looksLikeJTab).addClass('jtab');
-			// SOUP.log( 'soup music396 found', $abc.length, 'ABC and', $jtab.length, 'jTab blocks in', $elements );
-
-			if ( $abc.length > 0 ) loadAndRenderAbc( $abc );
-			if ( $jtab.length > 0 && window.jtab ) $jtab.each( function () { jtab.render(this) } );
-		}
-
-		SOUP.addContentFilter( updateAbcAndJTab, 'music396', null, ['post', 'preview'] );
-	}
-};
+}; status-completed, no-repro */
 
 
 
@@ -2190,7 +2036,6 @@ var soupInit = function () {
 		};
 	} );
 
-	if ( document.body ) SOUP.log( 'soup warning: body already loaded, early fixes may not work properly' );
 	SOUP.log( 'soup init complete' );
 };
 
@@ -2215,7 +2060,7 @@ var soupLateSetup = function () {
 
 	// detect site beta status; together with StackExchange.options.user.rep this can be user to guesstimate user privileges
 	// XXX: this may need to be updated if the beta site design is changed in the future
-	SOUP.isBeta = /(^|\/)beta(meta)?\//.test( $('<span class="feed-icon" />').css('background-image') );
+	SOUP.isBeta = $.get("//api.stackexchange.com/2.2/sites?pagesize=999&key=U4DMV*8nvpm3EOpvf69Rxw((&filter=!*L1*AY-85BswrmXu");
 
 	// run ready queue after jQuery and/or SE framework have loaded
 	if ( window.StackExchange && StackExchange.ready ) StackExchange.ready( SOUP.runReadyQueue );
@@ -2300,79 +2145,6 @@ var soupLateSetup = function () {
 		}
 	} );
 
-	// load and cache the rep thresholds for user privileges on this site
-	// see https://api.stackexchange.com/docs/privileges#filter=default&site=stackoverflow&run=true
-	SOUP.userPrivileges = null;
-	SOUP.privilegesQueue = null;
-	SOUP.loadPrivileges = function ( callback ) {
-		// have we loaded the privileges already?
-		if ( SOUP.userPrivileges ) {
-			callback( SOUP.userPrivileges );
-			return;
-		}
-
-		// do we have them cached in LocalStorage?
-		var cacheKey = 'soup-privileges-' + location.hostname;
-		var cacheTimeMillis = 7*24*60*60*1000;  // one week
-		var cacheVersion = 1;
-		var data = JSON.parse( localStorage.getItem( cacheKey ) || "{}" );
-		if ( data.version === cacheVersion && data.timestamp >= Date.now() - cacheTimeMillis ) {
-			SOUP.log( 'soup using cached site privileges from', new Date( data.timestamp ) );
-			callback( SOUP.userPrivileges = data.privileges );
-			return;
-		}
-
-		// start an API request unless one is already in progress
-		// XXX: we ignore API backoff and quota issues, since we're only making one query per week per site anyway
-		// TODO: use a LocalStorage lock item to make sure multiple tabs can't possibly start simultaneous queries?
-		if ( ! SOUP.privilegesQueue ) {
-			SOUP.privilegesQueue = [];
-			SOUP.log( 'soup loading site privileges data from SE API' );
-			$.ajax( {
-				url: 'https://api.stackexchange.com/2.2/privileges',
-				data: {
-					key: '1p33SrBhD0f2V1zSOa)xfQ((',  // hi SE, it's me, SOUP! :)
-					pagesize: 100,  // should be plenty, no need to handle pagination
-					site: location.hostname,
-					filter: '12nhBxey'
-				},
-				dataType: 'json'
-			} ).then( function ( response ) {
-				// convert list of privileges into a desc-to-rep map
-				var privileges = {};
-				response.items.forEach( function ( item ) {
-					privileges[item.short_description] = item.reputation;
-				} );
-				SOUP.userPrivileges = privileges;
-				// cache result in LocalStorage
-				localStorage.setItem( cacheKey, JSON.stringify( {
-					privileges: privileges,
-					version: cacheVersion,
-					timestamp: Date.now(),
-				} ) );
-				// run deferred callbacks
-				SOUP.privilegesQueue.forEach( function ( callback ) {
-					callback( privileges );
-				} );
-				SOUP.privilegesQueue = null;
-				SOUP.log( 'soup site privileges loaded and cached' );
-			}, function ( xhr, errorType, message ) {
-				SOUP.log( 'soup loading site privileges failed:', errorType, message, xhr );
-				if ( data.version === cacheVersion ) {
-					SOUP.log( 'soup using stale cached privileges from', new Date( data.timestamp ) );
-					SOUP.userPrivileges = data.privileges;
-					SOUP.privilegesQueue.forEach( function ( callback ) {
-						callback( data.privileges );
-					} );
-					SOUP.privilegesQueue = null;
-				}
-			} );
-		}
-
-		// defer callback until API request completes
-		SOUP.privilegesQueue.push( callback );
-	};
-
 	SOUP.log( 'soup setup complete' );
 };
 
@@ -2387,78 +2159,66 @@ var fixIsEnabled = function ( fix ) {
 	return true;
 };
 
+
 //
 // Inject scripts and styles into the page:
 //
-var injectEarlyFixes = function () {
-	var head = document.head || document.documentElement;
-	if ( window.console ) console.log( 'soup injecting fixes into', head );
+if ( window.console ) console.log( 'soup injecting fixes' );
+var head = document.head || document.documentElement;
 
-	// SOUP object init and early scripts:
-	var initScript = document.createElement( 'script' );
-	initScript.id = 'soup-init';
-	initScript.type = 'text/javascript';
-	var code = "'use strict';\n(" + soupInit + ")();\n";
-	for (var id in fixes) {
-		if ( ! fixIsEnabled( fixes[id] ) ) continue;
-		if ( fixes[id].early ) code += "SOUP.try(" + JSON.stringify(id) + ", " + fixes[id].early + ");\n";
-		if ( fixes[id].jqinit ) code += "SOUP.jQueryInit(" + JSON.stringify(id) + ", " + fixes[id].jqinit + ");\n";
-	}
-	initScript.textContent = code;
-	head.appendChild( initScript );
-
-	// MathJax config:
-	var mathjaxScript = document.createElement( 'script' );
-	mathjaxScript.id = 'soup-mathjax-config';
-	mathjaxScript.type = 'text/x-mathjax-config';
-	var code = "SOUP.log( 'soup mathjax config loading' );\n";
-	for (var id in fixes) {
-		if ( ! fixIsEnabled( fixes[id] ) || ! fixes[id].mathjax ) continue;
-		code += "SOUP.try(" + JSON.stringify(id) + ", " + fixes[id].mathjax + ");\n";
-	}
-	mathjaxScript.textContent = code;
-	head.appendChild( mathjaxScript );
-
-	// CSS styles:
-	var styleElem = document.createElement( 'style' );
-	styleElem.id = 'soup-styles';
-	styleElem.type = 'text/css';
-	var code = "";
-	for (var id in fixes) {
-		if ( ! fixIsEnabled( fixes[id] ) ) continue;
-		if ( fixes[id].css ) code += "/* " + id + " */\n" + fixes[id].css;
-	}
-	styleElem.textContent = code.replace( /[}] */g, "}\n" )
-	head.appendChild( styleElem );
-
-	// JS fixes (injected on document load, run after SE framework is ready):
-	var injectScripts = function () {
-		var scriptElem = document.createElement( 'script' );
-		scriptElem.id = 'soup-scripts';
-		scriptElem.type = 'text/javascript';
-		var code = "'use strict';\n(" + soupLateSetup + ")();\n";
-		for (var id in fixes) {
-			if ( ! fixIsEnabled( fixes[id] ) || ! fixes[id].script ) continue;
-			code += "SOUP.ready(" + JSON.stringify(id) + ", " + fixes[id].script + ");\n";
-		}
-		scriptElem.textContent = code;
-		document.body.appendChild( scriptElem );
-	};
-	if (document.body) injectScripts();
-	else if (window.opera) addEventListener( 'load', injectScripts, false );
-	else document.addEventListener( 'DOMContentLoaded', injectScripts );
-};
-if ( document.head || document.documentElement ) injectEarlyFixes();
-else {
-	// GM4 sometimes runs document-start scripts before any DOM element exists: https://github.com/greasemonkey/greasemonkey/issues/2996
-	if ( window.console ) console.log( 'soup deferring initialization until documentElement exists' );
-	var obs = new MutationObserver( function () {
-		if ( ! document.head && ! document.documentElement ) return;
-		obs.disconnect();
-		injectEarlyFixes();
-	} );
-	obs.observe( document, { childList: true } );
+// SOUP object init and early scripts:
+var initScript = document.createElement( 'script' );
+initScript.id = 'soup-init';
+initScript.type = 'text/javascript';
+var code = "'use strict';\n(" + soupInit + ")();\n";
+for (var id in fixes) {
+	if ( ! fixIsEnabled( fixes[id] ) ) continue;
+	if ( fixes[id].early ) code += "SOUP.try(" + JSON.stringify(id) + ", " + fixes[id].early + ");\n";
+	if ( fixes[id].jqinit ) code += "SOUP.jQueryInit(" + JSON.stringify(id) + ", " + fixes[id].jqinit + ");\n";
 }
+initScript.textContent = code;
+head.appendChild( initScript );
+
+// MathJax config:
+var mathjaxScript = document.createElement( 'script' );
+mathjaxScript.id = 'soup-mathjax-config';
+mathjaxScript.type = 'text/x-mathjax-config';
+var code = "SOUP.log( 'soup mathjax config loading' );\n";
+for (var id in fixes) {
+	if ( ! fixIsEnabled( fixes[id] ) || ! fixes[id].mathjax ) continue;
+	code += "SOUP.try(" + JSON.stringify(id) + ", " + fixes[id].mathjax + ");\n";
+}
+mathjaxScript.textContent = code;
+head.appendChild( mathjaxScript );
+
+// CSS styles:
+var styleElem = document.createElement( 'style' );
+styleElem.id = 'soup-styles';
+styleElem.type = 'text/css';
+var code = "";
+for (var id in fixes) {
+	if ( ! fixIsEnabled( fixes[id] ) ) continue;
+	if ( fixes[id].css ) code += "/* " + id + " */\n" + fixes[id].css;
+}
+styleElem.textContent = code.replace( /[}] */g, "}\n" )
+head.appendChild( styleElem );
+
+// JS fixes (injected on document load, run after SE framework is ready):
+var injectScripts = function () {
+	var scriptElem = document.createElement( 'script' );
+	scriptElem.id = 'soup-scripts';
+	scriptElem.type = 'text/javascript';
+	var code = "'use strict';\n(" + soupLateSetup + ")();\n";
+	for (var id in fixes) {
+		if ( ! fixIsEnabled( fixes[id] ) || ! fixes[id].script ) continue;
+		code += "SOUP.ready(" + JSON.stringify(id) + ", " + fixes[id].script + ");\n";
+	}
+	scriptElem.textContent = code;
+	document.body.appendChild( scriptElem );
+};
+if (document.body) injectScripts();
+else if (window.opera) addEventListener( 'load', injectScripts, false );
+else document.addEventListener( 'DOMContentLoaded', injectScripts );
 
 } )();  // end of anonymous wrapper function
 
